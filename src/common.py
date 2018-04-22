@@ -139,7 +139,41 @@ def plot_model_history(history):
 
     plt.show()    
 
+#
+# Routines to extract comments from a given file
+#
+def has_alphabets(sentence):
+    for ch in sentence:
+        if ch.isalpha() == True:
+            return True
+        
+    return False
 
+def get_comment_sents(filename):
+    comment_sents = []
+
+    comment_blocks = comment_parser.extract_comments(filename)
+    
+    #
+    # Skip copyright section
+    #
+    for comment_block in comment_blocks[1:]:
+        #
+        # Remove any special characters
+        #
+        comment_text = comment_block._text
+        comment_text = comment_text.replace('*', '')
+        comment_text = comment_text.replace('\n', '')
+        comment_text = comment_text.replace('\t', '')
+        comment_text = comment_text.replace('/', ' or ')
+        
+        for sent in tokenize.sent_tokenize(comment_text):
+            if has_alphabets(sent) is False:
+                continue
+                
+            comment_sents.append(sent)
+
+    return comment_sents
 
 
 class Metrics(keras.callbacks.Callback):

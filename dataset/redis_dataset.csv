@@ -2751,7 +2751,7 @@
 2749,2749,No attempt is made to compress the data structure as in [1].,0,1,1,1
 2750,2750,"Also the    algorithm used is the original HyperLogLog Algorithm as in [2], with    the only difference that a 64 bit hash function is used, so no correction    is performed for values near 2^32 as in [1].",1,0,1,1
 2751,2751,"[1] Heule, Nunkesser, Hall: HyperLogLog in Practice: Algorithmic      Engineering of a State of The Art Cardinality Estimation Algorithm.",0,0,1,0
-2752,2752,"[2] P. Flajolet, Ã­Âric Fusy, O. Gandouet, and F. Meunier.",0,0,0,0
+2752,2752,"[2] P. Flajolet, íric Fusy, O. Gandouet, and F. Meunier.",0,0,0,0
 2753,2753,Hyperloglog: The      analysis of a near-optimal cardinality estimation algorithm.,0,0,0,0
 2754,2754,"Redis uses two representations:   1) A ""dense"" representation where every entry is represented by     a 6-bit integer.",0,0,1,0
 2755,2755,"2) A ""sparse"" representation using run length compression suitable     for representing HyperLogLogs with many registers set to 0 in     a memory efficient way.",1,0,0,0

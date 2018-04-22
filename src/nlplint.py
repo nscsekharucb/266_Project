@@ -6,13 +6,14 @@ from keras.models import model_from_yaml
 import pandas as pd
 import numpy as np
 import json
+from importlib import reload
 
 import common
 
 from importlib import reload
 
 print("File name:", sys.argv[1])
-maxlen = 400
+maxlen = 160
 #
 # Load the model
 #
@@ -42,8 +43,8 @@ comment_sents += common.get_comment_sents(sys.argv[1])
 # Predict the comment sentences
 #
 reload(common)
-pred_tokenizer = Tokenizer(num_words=20000)
-labels = ['Good Comment', 'Needs Fix']
+pred_tokenizer = Tokenizer(num_words=6000)
+labels = ['Needs Fix', 'Good Comment']
 
 with open('models/dictionary.json', 'r') as dictionary_file:
     dictionary = json.load(dictionary_file)

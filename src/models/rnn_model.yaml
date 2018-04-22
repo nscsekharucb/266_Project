@@ -4,17 +4,17 @@ config:
 - class_name: Embedding
   config:
     activity_regularizer: null
-    batch_input_shape: !!python/tuple [null, 80]
+    batch_input_shape: !!python/tuple [null, 100]
     dtype: float32
     embeddings_constraint: null
     embeddings_initializer:
       class_name: RandomUniform
       config: {maxval: 0.05, minval: -0.05, seed: null}
     embeddings_regularizer: null
-    input_dim: 4000
-    input_length: 80
+    input_dim: 6000
+    input_length: 100
     mask_zero: false
-    name: embedding_17
+    name: embedding_2
     output_dim: 100
     trainable: true
 - class_name: LSTM
@@ -34,7 +34,7 @@ config:
       class_name: VarianceScaling
       config: {distribution: uniform, mode: fan_avg, scale: 1.0, seed: null}
     kernel_regularizer: null
-    name: lstm_17
+    name: lstm_2
     recurrent_activation: hard_sigmoid
     recurrent_constraint: null
     recurrent_dropout: 0.0
@@ -51,7 +51,7 @@ config:
     unroll: false
     use_bias: true
 - class_name: Dropout
-  config: {name: dropout_8, noise_shape: null, rate: 0.1, seed: null, trainable: true}
+  config: {name: dropout_2, noise_shape: null, rate: 0.1, seed: null, trainable: true}
 - class_name: Dense
   config:
     activation: sigmoid
@@ -66,7 +66,7 @@ config:
       class_name: VarianceScaling
       config: {distribution: uniform, mode: fan_avg, scale: 1.0, seed: null}
     kernel_regularizer: null
-    name: dense_16
+    name: dense_2
     trainable: true
     units: 1
     use_bias: true
